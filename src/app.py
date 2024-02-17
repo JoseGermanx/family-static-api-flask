@@ -36,6 +36,11 @@ def get_member(id):
     member = jackson_family.get_member(id)
     return jsonify(member), 200
 
+@app.route('/member/<int:id>', methods=['DELETE'])
+def delete_member(id):
+    jackson_family.delete_member(id)
+    return jsonify({"done": True}), 200
+
 @app.route('/members', methods=['GET'])
 def handle_hello():
 
