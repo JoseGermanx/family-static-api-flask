@@ -6,7 +6,10 @@ update this file to implement the following already declared methods:
 - update_member: Should update a member from the self._members list
 - get_member: Should return a member from the self._members list
 """
+import json
 from random import randint
+
+from flask import jsonify
 
 class FamilyStructure:
     def __init__(self, last_name):
@@ -14,16 +17,19 @@ class FamilyStructure:
 
         # example list of members
         self._members = [{
+            "id": self._generateId(),
             "first_name": "John Jackson",
             "age": 33,
             "lucky_numbers": [7, 13, 22]
         },
         {
+            "id": self._generateId(),
             "first_name": "Jane Jackson",
             "age": 35,
             "lucky_numbers": [10, 14, 3]
         },
         {
+            "id": self._generateId(),
             "first_name": "Jimmy Jackson",
             "age": 5,
             "lucky_numbers": [1]
@@ -44,7 +50,10 @@ class FamilyStructure:
 
     def get_member(self, id):
         # fill this method and update the return
-        pass
+        for member in self._members:
+            if member["id"] == id:
+                return member
+        
 
     # this method is done, it returns a list with all the family members
     def get_all_members(self):
