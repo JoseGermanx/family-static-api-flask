@@ -18,19 +18,19 @@ class FamilyStructure:
         # example list of members
         self._members = [{
             "id": self._generateId(),
-            "first_name": "John Jackson",
+            "first_name": self.last_name,
             "age": 33,
             "lucky_numbers": [7, 13, 22]
         },
         {
             "id": self._generateId(),
-            "first_name": "Jane Jackson",
+            "first_name": self.last_name,
             "age": 35,
             "lucky_numbers": [10, 14, 3]
         },
         {
             "id": self._generateId(),
-            "first_name": "Jimmy Jackson",
+            "first_name": self.last_name,
             "age": 5,
             "lucky_numbers": [1]
         }]
@@ -41,6 +41,8 @@ class FamilyStructure:
 
     def add_member(self, member):
         # fill this method and update the return
+        member["id"] = self._generateId()
+        member["last_name"] = self.last_name
         self._members.append(member)
         pass
 
